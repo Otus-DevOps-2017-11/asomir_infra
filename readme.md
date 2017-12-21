@@ -1,6 +1,6 @@
-## HomeWork 05
+# HomeWork 05
 
-### Подключение к Someinternalhost в одну строку 
+## Подключение к Someinternalhost в одну строку 
 
 ''' $ ssh -At asomirl@35.205.183.251 ssh 10.132.0.3
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-1002-gcp x86_64)
@@ -19,7 +19,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.13.0-1002-gcp x86_64)
 Last login: Mon Dec 18 20:46:42 2017 from 10.132.0.2
 '''
 
-### Подключение в одну команду 
+## Подключение в одну команду 
 
 На локальной машине прописываем в ~/.ssh/config следующее: 
 
@@ -41,3 +41,7 @@ ProxyCommand ssh bastion -W %h:%p
 
 ''' Host bastion internal ip 10.132.0.2 external ip 35.205.183.251 
 Host someinternalhost	internal ip 10.132.0.3
+
+#Homework 06
+
+gcloud compute --project=infra-189218 firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
