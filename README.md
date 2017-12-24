@@ -43,5 +43,6 @@ ProxyCommand ssh bastion -W %h:%p
 Host someinternalhost	internal ip 10.132.0.3
 
 #Homework 06
+## Startup script, который будет запускаться при создании инстанса.
 
 gcloud compute --project=infra-189218 firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server
