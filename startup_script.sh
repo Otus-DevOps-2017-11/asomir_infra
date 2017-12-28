@@ -5,7 +5,8 @@ sudo apt -y update
 sudo apt install -y mongodb-org 
 sudo systemctl start mongod 
 sudo systemctl enable mongod 
-sudo apt install -y ruby-full ruby-bundler build-essential 
-git clone https://github.com/Otus-DevOps-2017-11/reddit.git 
+sudo apt install -y ruby-full ruby-bundler build-essential
+cd ~ 
+git clone https://github.com/Otus-DevOps-2017-11/reddit.git ~/reddit
 cd ~/reddit && bundle install 
 puma -d 
