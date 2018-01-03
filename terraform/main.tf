@@ -29,12 +29,12 @@ resource "google_compute_instance" "app" {
  # использовать ephemeral IP для доступа из Интернет
  access_config {} 
  }
- 
+ # включаем подключение по ssh с путём к приватному ключу 
  connection {
  	type = "ssh"
  	user = "asomirl"
  	agent = false
- 	private_key = "${file("~/.ssh/id_rsa")}"
+ 	private_key = "${file("var.private_key_path")}"
  }
 # копируем puma-service 
  provisioner "file" { 
@@ -48,6 +48,7 @@ resource "google_compute_instance" "app" {
  }
 }
 
+# Создание правила для firewall
 resource "google_compute_firewall" "firewall_puma" {
  name = "allow-puma-default"
 # Название сети, в которой действует правило
