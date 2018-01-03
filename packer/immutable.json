@@ -1,19 +1,19 @@
 {
     "builders": [
     {
-    "type": "googlecompute",
-	"disk_size": "10", 
+        "type": "googlecompute",
+	    "disk_size": "10", 
     	"project_id": "{{user `proj_id`}}",
     	"image_name": "reddit-base-{{timestamp}}",
-    	"image_family": "reddit-base",
+    	"image_family": "reddit-full",
     	"source_image_family": "{{user `source_image_fam`}}",
     	"zone": "europe-west1-b",
     	"ssh_username": "asomirl",
     	"machine_type": "{{user `mach_type`}}",
-	"disk_type": "pd-standard",
-	"image_description": "reddit-app",
-	"network": "default",
-	"tags": "puma-server"
+	    "disk_type": "pd-standard",
+	    "image_description": "reddit-app",
+	    "network": "default",
+	    "tags": "puma-server"
     }
   ],
   "provisioners": [
@@ -26,6 +26,13 @@
       "type": "shell",
       "script": "scripts/install_mongodb.sh",
       "execute_command": "sudo {{.Path}}"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/deploy.sh",
+      "execute_command": "sudo {{.Path}}"
     }
+    
   ]
 }
+
