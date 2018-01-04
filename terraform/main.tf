@@ -43,7 +43,8 @@ resource "google_compute_instance" "app" {
  	agent = false
  	private_key = "${file(var.private_key_path)}"
  }
- 
+
+
 
 # копируем puma-service 
  provisioner "file" { 
@@ -56,6 +57,11 @@ resource "google_compute_instance" "app" {
  	script = "files/deploy.sh"
  }
 }
+
+# Задаём IP для сервера в виде внешнего ресурса
+resource "google_compute_address" "app_ip" {
+ name = "reddit-app-ip"
+} 
 
 # Создание правила для firewall
 resource "google_compute_firewall" "firewall_puma" {
@@ -71,5 +77,19 @@ resource "google_compute_firewall" "firewall_puma" {
  source_ranges = ["0.0.0.0/0"]
 # Правило применимо для инстансов с тегом …
  target_tags = ["reddit-app"]
+}
+
+# Создаём правило для 22 порта с тем же именем, что в вебе
+resource "google_compute_firewall" "firewall_ssh" {
+ name = "default-allow-ssh"
+ description = "Hallow, SSH!"
+ network =
+"default"
+ allow {
+ protocol = "tcp"
+ ports = ["22"]
+ }
+ source_ranges = ["0.0.0.0/0"]
+
 }
 
