@@ -6,6 +6,7 @@
     "builders": [
         {
             "type": "googlecompute",
+	    "ssh_username": "asomirl",
             "project_id": "{{user `proj_id`}}",
             "machine_type": "{{user `machine_type`}}",
             "zone": "{{user `zone`}}",
@@ -15,8 +16,8 @@
             "source_image_family": "{{user `source_image_family`}}",
             "disk_size": "{{user `disk_size`}}",
             "disk_type": "{{user `disk_type`}}",
-            "network": "{{user `network`}}",
-            "ssh_username": "appuser"
+            "network": "{{user `network`}}"
+	    
         }
     ],
     "provisioners": [
