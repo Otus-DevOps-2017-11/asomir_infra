@@ -4,6 +4,13 @@ provider "google" {
  region = "${var.region}"
 }
 
+# Подключение SSH ключей для пользователя asomirl И appuser
+resource "google_compute_project_metadata" "ssh-asomirl" {
+ metadata  {
+ 	ssh-keys  = "asomirl:${file(var.public_key_path)}\n appuser:${file(var.public_key_path)}"
+  }
+}
+
 resource "google_compute_instance" "app" {
  name = "reddit-app"
  machine_type = "g1-small"
@@ -11,9 +18,9 @@ resource "google_compute_instance" "app" {
  tags = ["reddit-app"] 
  
  # добавление SSH ключей для моего пользователя
- metadata {
- sshKeys = "asomirl:${file(var.public_key_path)}"
- }
+ #metadata {
+ #sshKeys = "asomirl:${file(var.public_key_path)}"
+ #}
  
  # определение загрузочного диска
  boot_disk {
@@ -34,8 +41,10 @@ resource "google_compute_instance" "app" {
  	type = "ssh"
  	user = "asomirl"
  	agent = false
- 	private_key = "${file("var.private_key_path")}"
+ 	private_key = "${file(var.private_key_path)}"
  }
+ 
+
 # копируем puma-service 
  provisioner "file" { 
  	source = "files/puma.service"
