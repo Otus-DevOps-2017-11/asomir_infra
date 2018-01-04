@@ -1,11 +1,12 @@
 {
     "variables": {
-        "image_description": "Ubuntu 16.04 with Ruby prebaked for reddit-app"
+	   "image_description": "Ubuntu 16.04 with Ruby prebaked for reddit-app",
+	   "image_family": "reddit-app-base"
     },
     "builders": [
         {
             "type": "googlecompute",
-            "project_id": "{{user `project_id`}}",
+            "project_id": "{{user `proj_id`}}",
             "machine_type": "{{user `machine_type`}}",
             "zone": "{{user `zone`}}",
             "image_name": "reddit-app-base-{{isotime `20060102-150405`}}",

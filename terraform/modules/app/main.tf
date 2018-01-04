@@ -13,8 +13,8 @@ resource "google_compute_instance" "app" {
  network = "default"
  access_config = {
  nat_ip = "${google_compute_address.app_ip.address}"
- }
- }
+ 	}
+ } 
 	 # И снова ключик 
 	 # metadata {
 	 # sshKeys = "asomirl:${file(var.public_key_path)}"
@@ -34,11 +34,3 @@ resource "google_compute_firewall" "firewall_puma" {
  source_ranges = ["0.0.0.0/0"]
  target_tags = ["reddit-app"]
 }
-
-# Подключение SSH ключей для пользователя asomirl И appuser
-resource "google_compute_project_metadata" "ssh-asomirl" {
- metadata  {
- 	ssh-keys  = "asomirl:${file(var.public_key_path)}\n appuser:${file(var.public_key_path)}"
-  }
-}
-
