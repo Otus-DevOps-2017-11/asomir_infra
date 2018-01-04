@@ -16,7 +16,7 @@
             "disk_size": "{{user `disk_size`}}",
             "disk_type": "{{user `disk_type`}}",
             "network": "{{user `network`}}",
-            "ssh_username": "asomirl"
+            "ssh_username": "{{user `ssh_username`}}"
         }
     ],
     "provisioners": [

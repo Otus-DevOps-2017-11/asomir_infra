@@ -6,6 +6,7 @@
 		"disk_size": "10",
 		"disk_type": "pd-standard",
 		"network": "default"
+		"ssh_username": "asomirl"
 		
 	}
 

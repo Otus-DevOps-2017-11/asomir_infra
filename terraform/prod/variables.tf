@@ -27,10 +27,10 @@ variable disk_image {
 
 variable app_disk_image {
   description = "Disk image for reddit app"
-  default     = "reddit-app-base-20180104-125540"
+  default     = "reddit-app-base"
 }
 
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default     = "reddit-db-base-20180104-125940"
+  default     = "reddit-db-base"
 }

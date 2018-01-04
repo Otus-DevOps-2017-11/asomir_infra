@@ -1,15 +1,15 @@
 {
     "variables": {
 	   "image_description": "Ubuntu 16.04 with Ruby prebaked for reddit-app",
-	   "image_family": "reddit-app-base"
+	   "image_family": "reddit-app-base"	   
     },
     "builders": [
         {
             "type": "googlecompute",
-	    "ssh_username": "asomirl",
-            "project_id": "{{user `proj_id`}}",
+	    "project_id": "{{user `proj_id`}}",
             "machine_type": "{{user `machine_type`}}",
             "zone": "{{user `zone`}}",
+	    "ssh_username": "{{user `ssh_username`}}",
             "image_name": "reddit-app-base-{{isotime `20060102-150405`}}",
             "image_family": "{{user `image_family`}}",
             "image_description": "{{user `image_description`}}",
