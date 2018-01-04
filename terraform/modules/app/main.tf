@@ -1,7 +1,7 @@
 # Создаём машинку в гугле с именем App
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
-  machine_type = "g1-small"
+  machine_type = "${var.machine_type}"
   zone         = "${var.zone}"
   tags         = ["reddit-app"]
 
@@ -18,11 +18,6 @@ resource "google_compute_instance" "app" {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
   }
-
-  # И снова ключик 
-  # metadata {
-  # sshKeys = "asomirl:${file(var.public_key_path)}"
-  #}
 }
 
 resource "google_compute_address" "app_ip" {

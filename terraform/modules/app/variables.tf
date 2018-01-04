@@ -21,3 +21,8 @@ variable public_key_path {
 # description = "Path to the private key used for ssh access"
 #}
 
+variable machine_type {
+  description = "Machine type in GCP"
+  default     = "g1-small"
+}
+
