@@ -17,9 +17,10 @@ variable public_key_path {
   description = "Path to the public key used for ssh access"
 }
 
-#variable private_key_path {
-# description = "Path to the private key used for ssh access"
-#}
+variable private_key_path { 
+ description = "Path to the private key used for ssh access"
+ default = "~/.ssh/id_rsa"
+}
 
 variable machine_type {
   description = "Machine type in GCP"

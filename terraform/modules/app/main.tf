@@ -18,6 +18,23 @@ resource "google_compute_instance" "app" {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
   }
+ metadata {
+    sshKeys = "asomirl:${file(var.public_key_path)}"
+  }
+ connection {
+    type        = "ssh"
+    user        = "asomirl"
+    agent       = "false"
+    private_key = "${file(var.private_key_path)}"
+  }
+ provisioner "file" {
+ 	source = "gs://storage-bucket-test-11/puma.service"
+ 	destination = "/tmp/puma.service"
+	}
+
+ provisioner "remote-exec" {
+ 	script = "gs://storage-bucket-test-11/deploy.sh"
+	}
 }
 
 resource "google_compute_address" "app_ip" {
@@ -37,3 +54,4 @@ resource "google_compute_firewall" "firewall_puma" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]
 }
+
