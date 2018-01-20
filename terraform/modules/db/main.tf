@@ -10,11 +10,31 @@ resource "google_compute_instance" "db" {
       image = "${var.db_disk_image}"
     }
   }
-
+  # Инициализируем сеточку
   network_interface {
     network       = "default"
     access_config = {}
   }
+
+  # Прихерачиваем SSH, чтобы копировать файлики и выполнять скриптики
+  metadata {
+    sshKeys = "asomirl:${file(var.public_key_path)}"
+  }
+ connection {
+    type        = "ssh"
+    user        = "asomirl"
+    agent       = "false"
+    private_key = "${file(var.private_key_path)}"
+  }
+   #Копируем конфиг Монги в ТМП на ДБ сервере
+ provisioner "file" {
+ 	source     = "${path.module}/files/mongod.conf"
+ 	destination = "/tmp/mongod.conf"
+	}
+ # Выполняем наш скрыпт деплоя
+ provisioner "remote-exec" {
+ 	script = "${path.module}/files/deploy.sh"
+	}
 
   #metadata {
   #sshKeys = "asomirl:${file(var.public_key_path)}"
