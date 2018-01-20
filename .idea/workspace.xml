@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb314ff2-0bf4-4e7a-84c3-8df9af649217" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" afterPath="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" />
-      <change beforePath="$PROJECT_DIR$/terraform/modules/app/files/puma.service" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/terraform/modules/app/main.tf" afterPath="$PROJECT_DIR$/terraform/modules/app/main.tf" />
-      <change beforePath="$PROJECT_DIR$/terraform/modules/app/variables.tf" afterPath="$PROJECT_DIR$/terraform/modules/app/variables.tf" />
+      <change beforePath="$PROJECT_DIR$/terraform/prod/.xprofile" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.tf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.tf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-342">
@@ -79,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="puma.service.tpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="puma.service.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/puma.service.tpl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -288,6 +284,33 @@
               <item name="terraform" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="linux_amd64" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -296,6 +319,12 @@
               <item name="terraform" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="vpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="prod" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
@@ -367,8 +396,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="292" y="24" width="1922" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31041667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31041667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -548,14 +578,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terraform/variables.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/prod/.xprofile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -818,29 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <marker date="1516452143743" expanded="true" signature="52:100" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="58:99" ph="(...)" />
-            <marker date="1516452143743" expanded="true" signature="130:147" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="285:304" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="324:335" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="423:444" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="542:582" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="633:675" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="755:783" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="761:782" ph="(...)" />
-            <marker date="1516452143743" expanded="true" signature="901:930" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="907:929" ph="(...)" />
-            <marker date="1516452143743" expanded="true" signature="1010:1024" ph="${...}" />
-            <marker date="1516452143743" expanded="true" signature="1010:1040" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terraform/modules/db/files/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -862,6 +861,37 @@
         <state relative-caret-position="126">
           <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/prod/.xprofile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <marker date="1516452143743" expanded="true" signature="52:100" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="58:99" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="130:147" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="285:304" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="324:335" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="423:444" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="542:582" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="633:675" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="755:783" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="761:782" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="901:930" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="907:929" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="1010:1024" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="1010:1040" ph="${...}" />
+          </folding>
         </state>
       </provider>
     </entry>
