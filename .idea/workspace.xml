@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb314ff2-0bf4-4e7a-84c3-8df9af649217" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" afterPath="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" />
+      <change beforePath="$PROJECT_DIR$/terraform/modules/app/files/puma.service" afterPath="" />
       <change beforePath="$PROJECT_DIR$/terraform/modules/app/main.tf" afterPath="$PROJECT_DIR$/terraform/modules/app/main.tf" />
       <change beforePath="$PROJECT_DIR$/terraform/modules/app/variables.tf" afterPath="$PROJECT_DIR$/terraform/modules/app/variables.tf" />
     </list>
@@ -13,22 +16,115 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.tf" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.tf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="-342">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding>
-                <marker date="1515104810636" expanded="true" signature="130:149" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="169:180" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="268:289" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="387:427" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="474:502" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="480:501" ph="(...)" />
-                <marker date="1515104810636" expanded="true" signature="619:648" ph="${...}" />
-                <marker date="1515104810636" expanded="true" signature="625:647" ph="(...)" />
+                <marker date="1516452143743" expanded="true" signature="52:100" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="58:99" ph="(...)" />
+                <marker date="1516452143743" expanded="true" signature="130:147" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="285:304" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="324:335" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="423:444" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="542:582" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="633:675" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="755:783" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="761:782" ph="(...)" />
+                <marker date="1516452143743" expanded="true" signature="901:930" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="907:929" ph="(...)" />
+                <marker date="1516452143743" expanded="true" signature="1010:1024" ph="${...}" />
+                <marker date="1516452143743" expanded="true" signature="1010:1040" ph="${...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.tf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/stage/main.tf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+              <folding>
+                <marker date="1516451610403" expanded="true" signature="53:67" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="82:95" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="256:284" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="262:283" ph="(...)" />
+                <marker date="1516451610403" expanded="true" signature="295:323" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="301:322" ph="(...)" />
+                <marker date="1516451610403" expanded="true" signature="438:460" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="483:494" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="517:538" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="635:662" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="785:807" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="830:841" ph="${...}" />
+                <marker date="1516451610403" expanded="true" signature="864:884" ph="${...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="outputs.tf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/stage/outputs.tf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+              <folding>
+                <marker date="1515083331031" expanded="true" signature="38:67" ph="${...}" />
+                <marker date="1515083331031" expanded="true" signature="109:136" ph="${...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="puma.service.tpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/puma.service.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="outputs.tf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/outputs.tf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="variables.tf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/variables.tf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/deploy.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deploy.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/terraform/modules/db/files/deploy.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,103 +141,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="variables.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/variables.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outputs.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/outputs.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="terraform.tfvars" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/app/terraform.tfvars">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="variables.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/app/variables.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/db/main.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1515083331027" expanded="true" signature="152:163" ph="${...}" />
-                <marker date="1515083331027" expanded="true" signature="250:270" ph="${...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outputs.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/db/outputs.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1515083331027" expanded="true" signature="37:118" ph="${...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="variables.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/db/variables.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outputs.tf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/terraform/modules/app/outputs.tf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding>
-                <marker date="1515083331027" expanded="true" signature="38:120" ph="${...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>db_inter</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="terraform-2" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/terraform/terraform.tfvars" />
         <option value="$PROJECT_DIR$/terraform/prod/terraform.tfvars" />
+        <option value="$PROJECT_DIR$/terraform/stage/terraform.tfvars" />
+        <option value="$PROJECT_DIR$/terraform/modules/db/files/mongod.conf" />
+        <option value="$PROJECT_DIR$/terraform/modules/db/files/deploy.sh" />
+        <option value="$PROJECT_DIR$/terraform/modules/vpc/variables.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/db/variables.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/app/terraform.tfvars" />
+        <option value="$PROJECT_DIR$/terraform/modules/app/variables.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/db/main.tf" />
+        <option value="$PROJECT_DIR$/terraform/stage/main.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/app/main.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/db/outputs.tf" />
+        <option value="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" />
+        <option value="$PROJECT_DIR$/terraform/modules/app/files/puma.service.tpl" />
       </list>
     </option>
   </component>
@@ -150,6 +182,25 @@
     <option name="y" value="24" />
     <option name="width" value="1400" />
     <option name="height" value="1028" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Terraform Configs</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>HCLUnknownBlockType</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -166,7 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,7 +228,31 @@
             <path>
               <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
               <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="packer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="packer" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
               <item name="terraform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
@@ -197,7 +272,23 @@
               <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
               <item name="terraform" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
+              <item name="terraform" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
@@ -210,39 +301,25 @@
               <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
               <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
               <item name="terraform" type="462c0819:PsiDirectoryNode" />
-              <item name="prod" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
-              <item name="terraform" type="462c0819:PsiDirectoryNode" />
               <item name="stage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
-              <item name="terraform" type="462c0819:PsiDirectoryNode" />
-              <item name="stage" type="462c0819:PsiDirectoryNode" />
-              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asomir_infra" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asomir_infra" type="462c0819:PsiDirectoryNode" />
-              <item name="terraform" type="462c0819:PsiDirectoryNode" />
-              <item name="stage" type="462c0819:PsiDirectoryNode" />
-              <item name=".terraform" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="TF_FMT" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/terraform/modules/db" />
+      <recent name="$PROJECT_DIR$/terraform/modules/db/files" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,17 +334,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Plan directory app" type="#org.intellij.plugins.hcl.terraform.run.TerraformConfigurationType" factoryName="Terraform Plan" temporary="true">
+    <configuration name="Plan directory app" type="#org.intellij.plugins.hcl.terraform.run.TerraformConfigurationType" factoryName="Terraform Plan">
       <option name="PROGRAM_PARAMETERS" value="plan" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/terraform/modules/app" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <envs />
     </configuration>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Terraform.Plan directory app" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -283,18 +355,25 @@
       <option name="presentableId" value="Default" />
       <updated>1515143751530</updated>
     </task>
+    <task id="LOCAL-00001" summary="Настроили подключение к Монге на другом сервере">
+      <created>1516457456862</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1516457456863</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
+    <frame x="292" y="24" width="1922" height="1092" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18867925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31041667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -311,16 +390,160 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Настроили подключение к Монге на другом сервере" />
+    <option name="LAST_COMMIT_MESSAGE" value="Настроили подключение к Монге на другом сервере" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/terraform.tfstate">
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/terraform.tfvars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/variables.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/main.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <marker date="1515083331027" expanded="true" signature="38:120" ph="${...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <marker date="1516452143743" expanded="true" signature="52:100" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="58:99" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="130:147" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="285:304" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="324:335" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="423:444" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="542:582" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="633:675" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="755:783" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="761:782" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="901:930" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="907:929" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="1010:1024" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="1010:1040" ph="${...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/variables.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform.tfstate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfvars.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfstate.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfstate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/storage-bucket.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/stage/terraform.tfstate.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfstate.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfstate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/prod/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/stage/.terraform.tfstate.lock.info" />
+    <entry file="file://$PROJECT_DIR$/terraform/stage/terraform.tfstate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="323" column="28" lean-forward="false" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -332,7 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfvars.example">
+    <entry file="file://$PROJECT_DIR$/terraform/prod/.xprofile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -340,15 +563,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfvars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfstate.backup">
+    <entry file="file://$PROJECT_DIR$/terraform/stage/.terraform/modules/3a5c67bb61ce8ccea23ef8b1acbe495e/terraform.tfstate">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -356,7 +571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfstate">
+    <entry file="file://$PROJECT_DIR$/terraform/stage/.terraform/modules/3a5c67bb61ce8ccea23ef8b1acbe495e/files/puma.service">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -364,67 +579,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/storage-bucket.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515085224429" expanded="true" signature="53:67" ph="${...}" />
-            <marker date="1515085224429" expanded="true" signature="82:95" ph="${...}" />
-            <marker date="1515085224429" expanded="true" signature="298:326" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/stage/main.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515083331031" expanded="true" signature="53:67" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="82:95" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="256:284" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="262:283" ph="(...)" />
-            <marker date="1515083331031" expanded="true" signature="295:323" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="301:322" ph="(...)" />
-            <marker date="1515083331031" expanded="true" signature="438:460" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="483:494" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="517:538" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="661:683" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="706:717" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="740:760" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/stage/outputs.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515083331031" expanded="true" signature="38:67" ph="${...}" />
-            <marker date="1515083331031" expanded="true" signature="109:136" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/stage/terraform.tfstate.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/stage/terraform.tfvars">
+    <entry file="file://$PROJECT_DIR$/terraform/.terraform/modules/modules.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -440,45 +595,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfvars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfstate.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfstate">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/prod/outputs.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515083331027" expanded="true" signature="38:67" ph="${...}" />
-            <marker date="1515083331027" expanded="true" signature="109:136" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terraform/prod/main.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
           <folding>
             <marker date="1515083331027" expanded="true" signature="53:67" ph="${...}" />
             <marker date="1515083331027" expanded="true" signature="82:95" ph="${...}" />
@@ -496,35 +616,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/app/outputs.tf">
+    <entry file="file://$PROJECT_DIR$/packer/scripts/install_mongodb.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <marker date="1515083331027" expanded="true" signature="38:120" ph="${...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/app/variables.tf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/db/outputs.tf">
+    <entry file="file://$PROJECT_DIR$/packer/db.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515083331027" expanded="true" signature="37:118" ph="${...}" />
-          </folding>
+        <state relative-caret-position="432">
+          <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/db/variables.tf">
+    <entry file="file://$PROJECT_DIR$/terraform/prod/terraform.tfvars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/stage/terraform.tfvars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/terraform.tfvars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/files/mongod.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/terraform.tfstate.backup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/terraform.tfstate">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -534,35 +682,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/terraform/modules/app/terraform.tfvars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="54">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/variables.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <marker date="1515083331027" expanded="true" signature="38:120" ph="${...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/terraform/modules/db/main.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-353">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding>
-            <marker date="1515083331027" expanded="true" signature="152:163" ph="${...}" />
-            <marker date="1515083331027" expanded="true" signature="250:270" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="152:163" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="250:270" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="495:523" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="501:522" ph="(...)" />
+            <marker date="1516450701785" expanded="true" signature="640:669" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="646:668" ph="(...)" />
+            <marker date="1516450701785" expanded="true" signature="759:773" ph="${...}" />
+            <marker date="1516450701785" expanded="true" signature="903:917" ph="${...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/variables.tf">
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/outputs.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="54">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding>
+            <marker date="1516452852153" expanded="true" signature="37:118" ph="${...}" />
+            <marker date="1516452852153" expanded="true" signature="194:253" ph="${...}" />
+            <marker date="1516452852153" expanded="true" signature="194:254" ph="${...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/terraform.tfvars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/outputs.tf">
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/variables.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -577,20 +761,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/vpc/variables.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/stage/main.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <marker date="1516451610403" expanded="true" signature="53:67" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="82:95" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="256:284" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="262:283" ph="(...)" />
+            <marker date="1516451610403" expanded="true" signature="295:323" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="301:322" ph="(...)" />
+            <marker date="1516451610403" expanded="true" signature="438:460" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="483:494" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="517:538" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="635:662" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="785:807" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="830:841" ph="${...}" />
+            <marker date="1516451610403" expanded="true" signature="864:884" ph="${...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/stage/outputs.tf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+          <folding>
+            <marker date="1515083331031" expanded="true" signature="38:67" ph="${...}" />
+            <marker date="1515083331031" expanded="true" signature="109:136" ph="${...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/puma.service">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/terraform/modules/app/main.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state relative-caret-position="-342">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding>
-            <marker date="1515104810636" expanded="true" signature="130:149" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="169:180" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="268:289" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="387:427" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="474:502" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="480:501" ph="(...)" />
-            <marker date="1515104810636" expanded="true" signature="619:648" ph="${...}" />
-            <marker date="1515104810636" expanded="true" signature="625:647" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="52:100" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="58:99" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="130:147" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="285:304" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="324:335" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="423:444" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="542:582" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="633:675" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="755:783" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="761:782" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="901:930" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="907:929" ph="(...)" />
+            <marker date="1516452143743" expanded="true" signature="1010:1024" ph="${...}" />
+            <marker date="1516452143743" expanded="true" signature="1010:1040" ph="${...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/db/files/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/terraform/modules/app/files/puma.service.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

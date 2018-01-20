@@ -27,3 +27,7 @@ variable machine_type {
   default     = "g1-small"
 }
 
+variable db_address {
+  description = "MongoDB IP"
+  default     = "127.0.0.1"
+}

@@ -1,3 +1,11 @@
+
+data "template_file" "pumaservice" {
+  template = "${file("${path.module}/files/puma.service.tpl")}"
+
+  vars {
+    db_address = "${var.db_address}"
+  }
+}
 # Создаём машинку в гугле с именем App
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
@@ -18,23 +26,28 @@ resource "google_compute_instance" "app" {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
   }
+
+  provisioner "file" {
+    content = "${data.template_file.pumaservice.rendered}"
+    destination = "/tmp/puma.service"
+  }
+
  metadata {
     sshKeys = "asomirl:${file(var.public_key_path)}"
   }
+
  connection {
     type        = "ssh"
     user        = "asomirl"
     agent       = "false"
     private_key = "${file(var.private_key_path)}"
   }
- provisioner "file" {
- 	source = "gs://storage-bucket-test-11/puma.service"
- 	destination = "/tmp/puma.service"
+
+  # Выполняем наш скрыпт деплоя
+ provisioner "remote-exec" {
+ 	script = "${path.module}/files/deploy.sh"
 	}
 
- provisioner "remote-exec" {
- 	script = "gs://storage-bucket-test-11/deploy.sh"
-	}
 }
 
 resource "google_compute_address" "app_ip" {
