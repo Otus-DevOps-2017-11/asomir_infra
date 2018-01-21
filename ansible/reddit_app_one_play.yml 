@@ -46,7 +46,7 @@
     bundler:
       state: present
       chdir: /home/asomirl/reddit
-    tags: deploy-tag
+      tags: deploy-tag
 
   handlers:
     - name: restart mongod
