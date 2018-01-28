@@ -22,5 +22,5 @@ variable private_key_path {
 
 variable disk_image {
   description = "Disk image"
-  default     = "reddit-base-1515001795"
+  default     = "reddit-base"
 }
