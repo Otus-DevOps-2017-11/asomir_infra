@@ -1,5 +1,5 @@
-"variables": {
-        "proj_id": "infra-111111",
-        "machine_type": "f1-micro",
-	"source_image_family": "ubuntu-1604-lts"
- }
+{
+	"proj_id": "infra-189218",
+	"mach_type": "f1-micro",
+	"source_image_fam": "ubuntu-1604-lts"
+}
