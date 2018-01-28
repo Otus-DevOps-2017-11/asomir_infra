@@ -5,6 +5,4 @@ variables.json
 *.tfvars
 .terraform/
 .idea/
-.idea/*
 workspace.xml
-/.idea/
