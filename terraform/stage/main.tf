@@ -17,6 +17,7 @@ module "app" {
   public_key_path = "${var.public_key_path}"
   zone            = "${var.zone}"
   app_disk_image  = "${var.app_disk_image}"
+
   # Добавим-ка сюда внутренний адресочек Монги-Донги, чтобы подключиться к ней
   db_address = "${module.db.db_internal_ip}"
 }
