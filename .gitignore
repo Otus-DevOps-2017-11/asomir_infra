@@ -4,5 +4,6 @@ variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
-.idea/*
 .idea/
+workspace.xml
+
