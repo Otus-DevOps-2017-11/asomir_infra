@@ -3,6 +3,6 @@
 *.tfstate.backup
 *.tfvars
 .terraform/
-.idea/*
 .idea/
 *.retry
+jdauphant.nginx
