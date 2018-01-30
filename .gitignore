@@ -1,3 +1,4 @@
+variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
@@ -6,3 +7,4 @@
 .idea/
 *.retry
 jdauphant.nginx
+variables.json
