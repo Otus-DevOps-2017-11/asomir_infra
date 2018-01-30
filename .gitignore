@@ -6,4 +6,5 @@ variables.json
 .terraform/
 .idea/
 workspace.xml
-
+*.retry
+variables.json
