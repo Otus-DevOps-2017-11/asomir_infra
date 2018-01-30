@@ -1,0 +1,7 @@
+---
+- name: Nginx Server
+  hosts: app
+  become: true
+
+  roles:
+   - jdauphant.nginx

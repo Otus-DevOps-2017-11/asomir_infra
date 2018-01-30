@@ -5,6 +5,6 @@ variables.json
 *.tfvars
 .terraform/
 .idea/
-workspace.xml
 *.retry
+jdauphant.nginx
 variables.json

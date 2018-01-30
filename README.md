@@ -1,3 +1,280 @@
+# HomeWork 12
+## Как я получил эту роль...
+### Структура ролей
+
+1. В одной далёкой-далёкой галактике в директории ansible была создана папка roles, где были выполнены команды 
+```bash
+$ ansible-galaxy init app
+$ ansible-galaxy init db
+```
+В результате взрыва этих сверхновых команд мы получили две новых суперструктуры 
+
+```markdown
+db
+├── README.md
+├── defaults #Где хранятся переменные по умолчанию
+│   └── main.yml 
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml #Где хранится роль о самом создателе
+├── tasks # Где можно узнать, какие задачи нам уготовлены
+│   └── main.yml
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars #Территория переменных, которые никогда не должны переопределяться
+ └── main.yml 
+```
+
+2. Секция таск откололась от ansible/db.yml и прилетела прямо в файл в директории tasks роли db
+
+```yamlex
+# tasks file for db
+- name: Change mongo config file
+  template:
+    src: templates/mongod.conf.j2
+    dest: /etc/mongod.conf
+    mode: 0644
+  notify: restart mongod
+```
+3. Тем временем в новую директорию для шаблонов templates в директории роли ansble/roles/db был скопирован
+шаблонизированный конфиг для MongoDB из директории ansible/templates. Особенностью ролей также является, что модули template и copy,
+которые используются в тасках роли, Ansible будут по умолчанию проверять наличие шаблонов и файлов в директориях роли
+templates и files соответсвенно. 
+
+```yamlex
+# tasks file for db
+- name: Change mongo config file
+ template:
+     src: mongod.conf.j2
+     dest: /etc/mongod.conf
+     mode: 0644
+ notify: restart mongod
+```
+4. А хендлер получил своё собственное конечное назначение ansible/roles/db/handlers/main.yml
+
+```yamlex
+- name: restart mongod
+  service: name=mongod state=restarted
+```
+
+5. Директорию ansible/roles/db/defaults/main.yml заняла коварная стайка переменных по умолчанию. Узнаем же, о чём они молчат: 
+
+```yamlex
+# defaults file for db
+mongo_port: 27017
+mongo_bind_ip: 127.0.0.1
+```
+
+6. Вивисекция tasks из сценария плейбука ansible/app.yml была вставлена в файл для тасков роли app.
+При этом src в модулях copy и template были указаны только имена файлов.
+ansible/roles/app/tasks/main.yml 
+```yamlex
+# tasks file for app
+- name: Add unit file for Puma
+  copy:
+     src: puma.service
+     dest: /etc/systemd/system/puma.service
+     notify: restart puma
+- name: Add config for DB connection
+  template:
+     src: db_config.j2
+     dest: /home/appuser/db_config
+     owner: appuser
+     group: appuser
+- name: enable puma
+  systemd: name=puma enabled=yes
+```
+
+7. В директории роли ansible/roles/app появились директории для шаблонов и файлов: templates & files, куда были немедленно присланы в директории роли
+db_config.j2 и puma.service.
+
+8. В ansible/roles/app/handlers/main.yml немедленно отправился хендлер 
+
+```yamlex
+# handlers file for app
+- name: restart puma
+  systemd: name=puma state=restarted
+```
+9. Была определена переменная по умолчанию в ansible/roles/app/defaults/main.yml для задания адреса подключения к MongoDB:
+
+```yamlex
+# defaults file for app
+db_host: 127.0.0.1
+```
+
+### Вызов ролей
+
+10. Сегодня роли  выглядят совершенно иначе:
+ansible/app.yml
+
+```yamlex
+- name: Configure App
+  hosts: app
+  become: true
+  vars:
+   db_host: 10.132.0.2
+  roles:
+    - app
+``` 
+ansible/db.yml 
+
+```yamlex
+- name: Configure MongoDB
+  hosts: db
+  become: true
+  vars:
+    mongo_bind_ip: 0.0.0.0
+  roles:
+    - db
+```
+### Проверка ролей
+
+11. Пора проверить код на прочность: 
+```bash
+$ ansible-playbook site.yml --check
+$ ansible-playbook site.yml
+```
+
+### Окружения 
+
+12. Была создана ansible/environments, внутри две директории для наших окружений stage и prod, внутри по файлу inventory из директории ansible.
+13. И начался деплой на на prod окружении:
+
+```bash
+$ ansible-playbook -i environments/prod/inventory deploy.yml
+```
+
+A стейдж стал окружением по умолчанию: 
+ansible/ansible.cfg 
+
+```buildoutcfg
+[defaults]
+inventory = ./environments/stage/inventory
+remote_user = appuser
+private_key_file = ~/.ssh/appuser
+host_key_checking = False
+```
+14. Создадим директорию group_vars в директориях наших окружений. Скопируем в файл переменные, определенные в
+плейбуке ansible/app.yml. 
+ansible/environments/stage/group_vars/app 
+```buildoutcfg
+db_host: 10.132.0.2
+```
+ansible/environments/stage/group_vars/db 
+```buildoutcfg
+mongo_bind_ip: 0.0.0.0
+```
+15. Файл с переменными для  группы all, которые будут доступны всем хостам окружения
+ansible/environments/stage/group_vars/all 
+
+```buildoutcfg
+env: stage
+```
+
+prod/group_vars/all
+
+```buildoutcfg
+env: prod
+```
+
+16. Для дебага используем модуль debug для вывода значения переменной окружения
+ansible/roles/app/tasks/main.yml
+ansible/roles/db/tasks/main.yml
+
+```yamlex
+# tasks file for app
+- name: Show info about the env this host belongs to
+ debug:
+ msg: "This host is in {{ env }} environment!!!"
+```
+
+17. Зачистили папку энсибл от старого хлама. В папке ansible из файлов остается
+только ansible.cfg и requirements.txt
+
+18. Наложили магию улучшения на ansible.cfg 
+
+```buildoutcfg
+[defaults]
+inventory = ./environments/stage/inventory
+remote_user = appuser
+private_key_file = ~/.ssh/appuser
+host_key_checking = False
+roles_path = ./roles # где роли, Билли?
+retry_files_enabled = False # нам больше не нужны ретри файлы
+[diff]
+always = True # diff фарева!
+context = 5 
+```
+
+19. Раскатаем всю силу нашей магии в прод
+
+```bash
+ ansible-playbook -i environments/prod/inventory playbooks/site.yml --check
+$ ansible-playbook -i environments/prod/inventory playbooks/site.yml
+```
+
+### Коммьюнити роли
+
+20. Используем всю мощь и силу jdauphant.nginx из ansible-galaxy  и настроим
+проксирование нашего приложения с помощью nginx. Создадим файлы environments/stage/
+requirements.yml и environments/prod/requirements.yml а внутри
+
+```yamlex
+- src: jdauphant.nginx
+version: v2.13
+```
+
+21. РОЛЬ УСТАНОВИСЯ!
+
+```bash
+ansible-galaxy install -r environments/stage/requirements.yml
+```
+
+22. Добавим в stage/group_vars/app и prod/group_vars/app кунгфу переменных 
+
+```buildoutcfg
+nginx_sites:
+ default:
+ - listen 80
+ - server_name "reddit"
+ - location / {
+ proxy_pass http://127.0.0.1:9292;
+ }
+```
+### Самостоятельная магия
+23. В терраформе в модуле апп добавили 80 порт
+
+```hcl-terraform
+# Создание правила для firewall
+resource "google_compute_firewall" "firewall_puma" {
+  name    = "allow-puma-default"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "9292"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["reddit-app"]
+}
+```
+
+24. Добавили вызов магии jdauphant.nginx в app.yml
+
+```yamlex
+- name: Configure App
+  hosts: app
+  become: true
+
+  roles:
+    - app
+    - jdauphant.nginx
+```
+25. Применили магию скрижали site.yml для окружения stage - приложение теперь доступно на 80 порту! Это победа светлой магии! 
+
+
 # HomePorn 11
 ## В большой инфраструктуре клювом нихьт клац-клац:
 

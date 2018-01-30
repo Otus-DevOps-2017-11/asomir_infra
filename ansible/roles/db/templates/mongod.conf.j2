@@ -1,0 +1,16 @@
+# Храним как-то тут данные
+storage:
+  dbPath: /var/lib/mongodb
+  journal:
+    enabled: true
+
+# Куда пишем логи
+systemLog:
+  destination: file
+  logAppend: true
+  path: /var/log/mongodb/mongod.log
+
+# network interfaces
+net:
+  port: {{ mongo_port | default('27017') }}
+  bindIp: {{ mongo_bind_ip }}
