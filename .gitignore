@@ -1,10 +1,10 @@
+variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
-.idea/*
 .idea/
+workspace.xml
 *.retry
 variables.json
-
