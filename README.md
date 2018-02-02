@@ -1,3 +1,164 @@
+#HomeWork 13
+## Разработка и тестирование Ansible ролей и плейбуков
+### Локальная разработка с Vagrant
+
+1. Установили VritualBox и Vagrant, в директории ansible создали Vagrantfile с нашими виртуалками app и db:
+
+```buildoutcfg
+Vagrant.configure("2") do |config|
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 512 #Столько памяти мы отдадим виртуалке 
+  end
+
+  config.vm.define "dbserver" do |db| 
+    db.vm.box = "ubuntu/xenial64" # Какую ось ставим?
+    db.vm.hostname = "dbserver"
+    db.vm.network :private_network, ip: "10.10.10.10" # Внутренний айпишник
+  end
+  
+  config.vm.define "appserver" do |app|
+    app.vm.box = "ubuntu/xenial64"
+    app.vm.hostname = "appserver"
+    app.vm.network :private_network, ip: "10.10.10.20"
+  end
+end
+```
+2. Проверим, что бокс скачался 
+```bash
+vagrant box list 
+```
+Проверим статус VMs:
+
+```bash
+vagrant status 
+```
+
+Проверим SSH доступ к appservder  и пинганём dbserver 
+
+```bash
+$ vagrant ssh appserver
+ubuntu@appserver:~$ ping -c 2 10.10.10.20 
+```
+### Провижининг
+
+3. Добавили провижинер ансамбля 
+
+```yamlex
+db.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbooks/site.yml"
+    ansible.groups = {
+    "db" => ["dbserver"],
+    "db:vars" => {"mongo_bind_ip" => "0.0.0.0"}
+}
+end
+```
+
+Запустили провижининг,
+ 
+```bash
+$ vagrant provision dbserver
+``` 
+ 
+ Но необходим питон. Создали файлик base.ym в папку с плейбуками, который сразу внесли в site.yml
+
+```yamlex
+
+---
+- name: Check && install python
+  hosts: all
+  become: true
+  gather_facts: False
+
+  tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+```
+
+Добавили install_mongo.yml
+
+```yamlex
+- name: Add APT key
+  apt_key:
+    id: "EA312927"
+    keyserver: keyserver.ubuntu.com
+  tags: install
+
+- name: Add APT repository
+  apt_repository:
+    repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+    state: present
+  tags: install
+
+- name: Install mongodb package
+  apt:
+    name: mongodb-org
+    state: present
+  tags: install
+
+- name: Configure service supervisor
+  systemd:
+    name: mongod
+    enabled: yes
+    state: started
+  tags: install
+```
+
+И config_mongo.yml
+
+```yamlex
+
+---
+- name: Change mongo config file
+  template:
+    src: templates/mongod.conf.j2
+    dest: /etc/mongod.conf
+    mode: 0644
+  notify: restart mongod
+```
+4. Вызываем таск вначале инсталляции Монги, затем её конфигурирования:
+
+db/tasks/main.yml 
+```yamlex
+# tasks file for db
+- name: Show info about the env this host belongs to
+ debug:
+ msg: "This host is in {{ env }} environment!!!"
+- include: install_mongo.yml
+- include: config_mongo.yml 
+```
+
+5. Применим роль для локальной машины dbserver: 
+
+```bash
+$ vagrant provision dbserver
+```
+6. Заходим по SSH на appserver
+
+```bash
+$ vagrant ssh appserver
+```
+и проверяем телнетом доступность порта 27017
+
+```bash
+ubuntu@appserver:~$ telnet 10.10.10.10 27017
+``` 
+
+7. Включим в нашу роль app конфигурацию из packer_app.yml плейбука, необходимую для настройки хоста приложения
+Создаём файл для тасков ruby.yml внутри роли app и копируем в него ТАСКИ из плейбука packer_app.yml
+
+```yamlex
+- name: Install ruby and rubygems and required packages
+  apt: "name={{ item }} state=present"
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby
+```
+
+8. Настройки 
 # HomeWork 12
 ## Как я получил эту роль...
 ### Структура ролей
