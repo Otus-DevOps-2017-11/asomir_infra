@@ -12,3 +12,7 @@ jdauphant.nginx
 *.pyc
 .molecule
 .cache
+Pipfile
+Pipfile.lock
+requests
+.yamlint
