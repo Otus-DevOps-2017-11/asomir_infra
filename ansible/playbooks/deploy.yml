@@ -1,7 +1,7 @@
 - name: Deploy App
   hosts: app
   vars:
-    deploy_user: appuser
+    deploy_user: asomirl
 
   tasks:
     - name: Fetch the latest version of application code
