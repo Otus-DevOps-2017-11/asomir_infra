@@ -1,29 +1,31 @@
 {
-    "variables": {
-	   "image_description": "Ubuntu 16.04 with Ruby prebaked for reddit-app",
-	   "image_family": "reddit-app-base"	   
-    },
-    "builders": [
-        {
-            "type": "googlecompute",
-	    "project_id": "{{user `proj_id`}}",
-            "machine_type": "{{user `machine_type`}}",
-            "zone": "{{user `zone`}}",
-	    "ssh_username": "{{user `ssh_username`}}",
-            "image_name": "reddit-app-base-{{isotime `20060102-150405`}}",
-            "image_family": "{{user `image_family`}}",
-            "image_description": "{{user `image_description`}}",
-            "source_image_family": "{{user `source_image_family`}}",
-            "disk_size": "{{user `disk_size`}}",
-            "disk_type": "{{user `disk_type`}}",
-            "network": "{{user `network`}}"
-	    
-        }
-    ],
-    "provisioners": [
-        {
-            "type": "ansible",
-            "playbook_file": "../ansible/packer_app.yml"
-        }
-    ]
+  "variables": {
+    "image_description": "Ubuntu 16.04 with Ruby prebaked for reddit-app",
+    "image_family": "reddit-app-base"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "{{user `proj_id`}}",
+      "machine_type": "{{user `machine_type`}}",
+      "zone": "{{user `zone`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "image_name": "reddit-app-base-{{isotime `20060102-150405`}}",
+      "image_family": "{{user `image_family`}}",
+      "image_description": "{{user `image_description`}}",
+      "source_image_family": "{{user `source_image_family`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "disk_type": "{{user `disk_type`}}",
+      "network": "{{user `network`}}",
+      "tags": ["puma-server"]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "../ansible/packer_app.yml",
+      "extra_arguments": ["--tags","build-date,ruby"],
+      "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
+    }
+  ]
 }
