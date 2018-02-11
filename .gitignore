@@ -1,3 +1,4 @@
+variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
@@ -16,3 +17,5 @@ Pipfile
 Pipfile.lock
 requests
 .yamlint
+variables.json
+
