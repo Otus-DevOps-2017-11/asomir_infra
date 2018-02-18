@@ -7,4 +7,15 @@ variables.json
 .idea/
 *.retry
 jdauphant.nginx
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+Pipfile
+Pipfile.lock
+requests
+.yamlint
 variables.json
+

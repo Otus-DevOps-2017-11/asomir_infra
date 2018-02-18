@@ -1,3 +1,555 @@
+#HomeWork 13
+## Разработка и тестирование Ansible ролей и плейбуков
+### Локальная разработка с Vagrant
+
+1. Установили VritualBox и Vagrant, в директории ansible создали Vagrantfile с нашими виртуалками app и db:
+
+```buildoutcfg
+Vagrant.configure("2") do |config|
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 512 #Столько памяти мы отдадим виртуалке 
+  end
+
+  config.vm.define "dbserver" do |db| 
+    db.vm.box = "ubuntu/xenial64" # Какую ось ставим?
+    db.vm.hostname = "dbserver"
+    db.vm.network :private_network, ip: "10.10.10.10" # Внутренний айпишник
+  end
+  
+  config.vm.define "appserver" do |app|
+    app.vm.box = "ubuntu/xenial64"
+    app.vm.hostname = "appserver"
+    app.vm.network :private_network, ip: "10.10.10.20"
+  end
+end
+```
+2. Проверим, что бокс скачался 
+```bash
+vagrant box list 
+```
+Проверим статус VMs:
+
+```bash
+vagrant status 
+```
+
+Проверим SSH доступ к appservder  и пинганём dbserver 
+
+```bash
+$ vagrant ssh appserver
+ubuntu@appserver:~$ ping -c 2 10.10.10.20 
+```
+### Провижининг
+
+3. Добавили провижинер ансамбля 
+
+```yamlex
+db.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbooks/site.yml"
+    ansible.groups = {
+    "db" => ["dbserver"],
+    "db:vars" => {"mongo_bind_ip" => "0.0.0.0"}
+}
+end
+```
+
+Запустили провижининг,
+ 
+```bash
+$ vagrant provision dbserver
+``` 
+ 
+ Но необходим питон. Создали файлик base.ym в папку с плейбуками, который сразу внесли в site.yml
+
+```yamlex
+
+---
+- name: Check && install python
+  hosts: all
+  become: true
+  gather_facts: False
+
+  tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+```
+
+Добавили install_mongo.yml
+
+```yamlex
+- name: Add APT key
+  apt_key:
+    id: "EA312927"
+    keyserver: keyserver.ubuntu.com
+  tags: install
+
+- name: Add APT repository
+  apt_repository:
+    repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+    state: present
+  tags: install
+
+- name: Install mongodb package
+  apt:
+    name: mongodb-org
+    state: present
+  tags: install
+
+- name: Configure service supervisor
+  systemd:
+    name: mongod
+    enabled: yes
+    state: started
+  tags: install
+```
+
+И config_mongo.yml
+
+```yamlex
+
+---
+- name: Change mongo config file
+  template:
+    src: templates/mongod.conf.j2
+    dest: /etc/mongod.conf
+    mode: 0644
+  notify: restart mongod
+```
+4. Вызываем таск вначале инсталляции Монги, затем её конфигурирования:
+
+db/tasks/main.yml 
+```yamlex
+# tasks file for db
+- name: Show info about the env this host belongs to
+ debug:
+ msg: "This host is in {{ env }} environment!!!"
+- include: install_mongo.yml
+- include: config_mongo.yml 
+```
+
+5. Применим роль для локальной машины dbserver: 
+
+```bash
+$ vagrant provision dbserver
+```
+6. Заходим по SSH на appserver
+
+```bash
+$ vagrant ssh appserver
+```
+и проверяем телнетом доступность порта 27017
+
+```bash
+ubuntu@appserver:~$ telnet 10.10.10.10 27017
+``` 
+
+7. Включим в нашу роль app конфигурацию из packer_app.yml плейбука, необходимую для настройки хоста приложения
+Создаём файл для тасков ruby.yml внутри роли app и копируем в него ТАСКИ из плейбука packer_app.yml
+
+```yamlex
+- name: Install ruby and rubygems and required packages
+  apt: "name={{ item }} state=present"
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby
+```
+
+8. Настройки puma сервера вынесли в отдельный файл для тасков
+
+```yamlex
+- name: Add unit file for Puma
+  copy:
+    src: puma.service
+    dest: /etc/systemd/system/puma.service
+  notify: restart puma
+
+- name: Add config for DB connection
+  template:
+    src: db_config.j2
+    dest: /home/appuser/db_config
+    owner: appuser
+    group: appuser
+
+- name: enable puma
+  systemd: name=puma enabled=yes
+```
+
+9. В файле app/tasks/main.yml вызываем таски в нужном порядке:
+
+```yamlex
+- name: Show info about the env this host belongs to
+ debug:
+ msg: "This host is in {{ env }} environment!!!"
+- include: ruby.yml
+- include: puma.yml 
+```
+
+### Провижиним appserver
+
+10. В ansible/Vagrantfile определяем ансибл провижининг аппсервера 
+
+```yamlex
+Vagrant.configure("2") do |config|
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 512
+  end
+
+  config.vm.define "dbserver" do |db|
+    db.vm.box = "ubuntu/xenial64"
+    db.vm.hostname = "dbserver"
+    db.vm.network :private_network, ip: "10.10.10.10"
+
+    db.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbooks/site.yml"
+      ansible.groups = {
+      "db" => ["dbserver"],
+      "db:vars" => {"mongo_bind_ip" => "0.0.0.0"}
+      }
+    end
+  end
+
+  config.vm.define "appserver" do |app|
+    app.vm.box = "ubuntu/xenial64"
+    app.vm.hostname = "appserver"
+    app.vm.network :private_network, ip: "10.10.10.20"
+
+    app.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbooks/site.yml"
+      ansible.groups = {
+      "app" => ["appserver"],
+      "app:vars" => { "db_host" => "10.10.10.10"}
+      }
+    end
+  end
+end
+```
+
+11. Применили провижининг:
+
+```bash
+$ vagrant provision appserver
+```
+12. Добавим переменные по умолчанию внутри роли app/defaults/main.yml 
+
+```yamlex
+db_host: 127.0.0.1
+env: local
+deploy_user: appuser 
+```
+
+13. В app/tasks/puma.yml добавили унит темплейтом дзындзи
+
+```yamlex
+- name: Add unit file for Puma
+ template:
+ src: puma.service.j2
+ dest: /etc/systemd/system/puma.service
+ notify: reload puma
+```
+
+14. Переместили unit из директории app/files в директорию app/templates и переименовали в puma.service.j2
+В созданном шаблоне поменяли все упоминания appuser на переменную deploy_user
+
+app/templates/puma.service.j2 
+
+```buildoutcfg
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+[Service]
+Type=simple
+EnvironmentFile=/home/{{ deploy_user }}/db_config
+User={{ deploy_user }}
+WorkingDirectory=/home/{{ deploy_user }}/reddit
+ExecStart=/bin/bash -lc 'puma'
+Restart=always
+[Install]
+WantedBy=multi-user.target
+```
+15. То же самое сделаем в app/tasks/puma.yml
+
+```yamlex
+- name: Add unit file for Puma
+ template:
+ src: puma.service.j2
+ dest: /etc/systemd/system/puma.service
+ notify: reload puma
+- name: Add config for DB connection
+ template:
+ src: db_config.j2
+ dest: "/home/{{ deploy_user }}/db_config"
+ owner: "{{ deploy_user }}"
+ group: "{{ deploy_user }}"
+- name: enable puma
+ systemd: name=puma enabled=yes 
+```
+
+16. ansible/playbooks/deploy.yml 
+
+```yamlex
+- name: Deploy App
+ hosts: app
+ vars:
+ deploy_user: appuser
+ tasks:
+ - name: Fetch the latest version of application code
+ git:
+ repo: 'https://github.com/Otus-DevOps-2017-11/reddit.git'
+ dest: "/home/{{ deploy_user }}/reddit"
+ version: monolith
+ notify: restart puma
+ - name: bundle install
+ bundler:
+ state: present
+ chdir: "/home/{{ deploy_user }}/reddit"
+handlers:
+ - name: restart puma
+ become: true
+ systemd: name=puma state=restarted
+```
+
+### Переопределение переменных
+
+17. Добавим extra_vars переменные в блок определения провижинера в Vagrantfile
+extra_vars имеют самый высокий приоритет перед остальными.
+
+
+```yamlex
+Vagrant.configure("2") do |config|
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 512
+  end
+
+  config.vm.define "dbserver" do |db|
+    db.vm.box = "ubuntu/xenial64"
+    db.vm.hostname = "dbserver"
+    db.vm.network :private_network, ip: "10.10.10.10"
+
+    db.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbooks/site.yml"
+      ansible.groups = {
+      "db" => ["dbserver"],
+      "db:vars" => {"mongo_bind_ip" => "0.0.0.0"}
+      }
+    end
+  end
+
+  config.vm.define "appserver" do |app|
+    app.vm.box = "ubuntu/xenial64"
+    app.vm.hostname = "appserver"
+    app.vm.network :private_network, ip: "10.10.10.20"
+
+    app.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbooks/site.yml"
+      ansible.groups = {
+      "app" => ["appserver"],
+      "app:vars" => { "db_host" => "10.10.10.10"}
+      }
+      ansible.extra_vars = {
+        "deploy_user" => "ubuntu"
+      }
+    end
+  end
+end
+```
+
+### Проверка роли
+
+18. Применим провижининг для хоста appserver:
+
+```bash
+$ vagrant provision appserver
+```
+19. Перепроверяем. Удаляем созданные машины, создаём окружение снова 
+
+```bash
+$ vagrant destroy -f 
+$ vagrant up 
+```
+### Установка зависимостей 
+
+20. В файл ansible/requirements.txt добавили
+
+```buildoutcfg
+ansible>=2.4
+molecule>=2.6
+testinfra>=1.10
+python-vagrant>=0.5.15 
+```
+
+21. Устанавливаем: 
+
+```bash
+ pip install -r requirements.txt
+ 
+```
+
+### Тестирование db роли
+
+22. Используем команду molecule init для создания заготовки тестов для роли db. Выполнили команду ниже в директории с ролью ansible/roles/db
+Указываем Vagrant как драйвер для создания VMs
+
+```bash
+$ molecule init scenario --scenario-name default -r db -d vagrant 
+```
+
+23. Добавим несколько тестов, используя модули Testinfra, для
+проверки конфигурации, настраиваемой ролью db
+
+db/molecule/default/tests/test_default.py 
+
+```python
+import os
+
+import testinfra.utils.ansible_runner
+
+testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
+    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
+
+# check if MongoDB is enabled and running
+def test_mongo_running_and_enabled(host):
+    mongo = host.service("mongod")
+    assert mongo.is_running
+    assert mongo.is_enabled
+
+# check if configuration file contains the required line
+def test_config_file(File):
+    config_file = File('/etc/mongod.conf')
+    assert config_file.contains('bindIp: 0.0.0.0')
+    assert config_file.is_file
+```
+
+24. Описание тестовой машины, которая создается Molecule для тестов
+содержится в файле db/molecule/default/molecule.yml
+
+```yamlex
+driver:
+ name: vagrant
+ provider:
+ name: virtualbox
+lint:
+ name: yamllint
+platforms:
+ - name: instance
+ box: ubuntu/xenial64
+provisioner:
+ name: ansible
+ lint:
+ name: ansible-lint
+```
+
+25. Создаём тестовую машину и Посмотрим список созданных инстансов, которыми управляет Molecule: 
+
+```bash
+$ molecule create 
+$ molecule list 
+```
+
+### Тестирование роли
+
+26. Подключаемся внутрь нашей машины 
+
+```bash
+$ molecule login -h instance
+```
+
+27. Molecule init генерирует плейбук для применения нашей роли. Данный плейбук можно посмотреть по
+пути. Добавим туда суперпользователя, Дополнительно зададим еще переменную
+mongo_bind_ip.
+
+db/molecule/default/playbook.yml
+
+```yamlex
+- name: Converge
+ become: true
+ hosts: all
+ vars:
+ mongo_bind_ip: 0.0.0.0
+ roles:
+ - role: db
+```
+
+
+28. Применим playbook.yml, в котором вызывается наша роль к
+созданному хосту:
+
+```bash
+$ molecule converge
+```
+
+29. Прогоняем тесты
+
+```bash
+$ molecule verify 
+```
+
+### Самостоятельная работа
+
+1. Написали тест к роли db для проверки того, что БД слушает по
+нужному порту (27017)
+
+```python
+# check if mongoDB is listening 27017 port
+def test_mongo_listening_27017(host):
+    assert host.socket('tcp://0.0.0.0:27017').is_listening
+```
+
+2. Для установки руби и запуска бандлера, а также установки монги в пакере использовали роль app и db
+
+```yamlex
+- name: Install Ruby && Bundler
+  hosts: all
+  become: true
+  roles:
+    app
+
+```
+
+```yamlex
+# Создаём пакером имидж Монги
+- name: Install MongoDB 3.2
+  hosts: all
+  become: true
+  roles:
+    db
+```
+
+3. В packer/db.json добавили 
+
+```yamlex
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "../ansible/playbooks/packer_db.yml",
+      "ansible_env_vars": [
+        "ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"
+      ]
+    }
+  ]
+```
+
+В packer/app.json добавили 
+
+
+```yamlex
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "../ansible/playbooks/packer_app.yml",
+      "extra_arguments": ["--tags","build-date,ruby"],
+      "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
+    }
+  ]
+
+```
+
+
 # HomeWork 12
 ## Как я получил эту роль...
 ### Структура ролей
